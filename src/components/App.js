@@ -1,18 +1,12 @@
 import React from "react";
-import ProductGrid from "./ProductGrid";
-import Header from "./Header";
-import Title from "./Title";
-import Footer from "./Footer";
+import AppRouter from "../routers/AppRouter";
+import { Provider } from "react-redux";
+import store from "../store/configureStore";
 
-const App = () => {
-  return (
-    <div>
-      <Header />
-      <Title />
-      <ProductGrid />
-      <Footer />
-    </div>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
 
 export default App;
