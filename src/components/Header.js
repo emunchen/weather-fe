@@ -5,7 +5,7 @@ const Header = () => {
     <header className="w-full px-6 bg-white">
       <div className="container mx-auto max-w-4xl md:flex justify-between items-center">
         <a
-          href="#"
+          href="/"
           className="block py-6 w-full text-center md:text-left md:w-auto text-gray-600 no-underline flex justify-center items-center"
         >
           Weather App
