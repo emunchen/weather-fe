@@ -4,7 +4,7 @@ import createSagaMiddleware from "redux-saga";
 import citiesReducer from "../reducers/cities";
 import usersReducer from "../reducers/users";
 
-import citiesSaga from "../sagas/sagas";
+import sagas from "../sagas/sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -21,6 +21,6 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, enhancer);
 
-sagaMiddleware.run(citiesSaga);
+sagaMiddleware.run(sagas);
 
 export default store;

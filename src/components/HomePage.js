@@ -4,15 +4,18 @@ import Header from "./Header";
 import Title from "./Title";
 import Footer from "./Footer";
 
-const HomePage = () => {
-  return (
-    <div>
-      <Header />
-      <Title />
-      <ProductGridContainer />
-      <Footer />
-    </div>
-  );
-};
-
-export default HomePage;
+export default class HomePage extends React.Component {
+  componentDidMount() {
+    
+  }
+  render() {
+    return (
+      <div>
+        <Header />
+        <Title />
+        <ProductGridContainer />
+        <Footer />
+      </div>
+    );
+  }
+}

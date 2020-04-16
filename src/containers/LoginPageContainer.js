@@ -1,13 +1,16 @@
-import { connect } from "react-redux";
-import { fetchCitySlug } from "../actions/cities";
 import LoginPage from "../components/LoginPage";
+import { connect } from "react-redux";
+import { userLogin } from "../actions/users";
 
-const mapDispatchToProps = (dispatch) => {  };
-
-const mapStateToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    city: state.cities.data,
+    userLogin: (email, password) => dispatch(userLogin(email, password)),
   };
 };
 
-export default connect(null, null)(LoginPage);
+function mapStateToProps(state, ownProps) {
+  return {
+    user: state.user,
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

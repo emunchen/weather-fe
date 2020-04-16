@@ -1,11 +1,11 @@
 import {
-  ME_FROM_TOKEN,
-  ME_FROM_TOKEN_SUCCESS,
-  ME_FROM_TOKEN_FAILURE,
+  LOGIN_USER_REQUEST,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAILURE,
 } from "../actions/users";
 
 export const initialState = {
-  user: null,
+  data: null,
   isFetching: false,
   errorMessage: null,
   status: null,
@@ -14,27 +14,27 @@ export const initialState = {
 const usersReducer = (state = initialState, action) => {
   let error;
   switch (action.type) {
-    case ME_FROM_TOKEN:
+    case LOGIN_USER_REQUEST:
       return {
         ...state,
         isFetching: true,
-        user: null,
+        data: null,
         status: "storage",
         errorMessage: null,
       };
-    case ME_FROM_TOKEN_SUCCESS:
+    case LOGIN_USER_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        user: action.payload.data,
+        data: action.payload,
         status: "authenticated",
         errorMessage: null,
       };
-    case ME_FROM_TOKEN_FAILURE:
+    case LOGIN_USER_FAILURE:
       error = action.payload.data || { message: action.payload.message };
       return {
         ...state,
-        user: null,
+        data: null,
         status: "storage",
         errorMessage: error,
         isFetching: false,
