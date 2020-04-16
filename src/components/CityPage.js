@@ -29,7 +29,7 @@ export default class CityPage extends React.Component {
             }}
           ></div>
 
-          <div className="bg-orange-100 text-orange-900 md:h-full w-full md:flex-1 flex justify-center items-center">
+          <div className="bg-gray-100 md:h-full w-full md:flex-1 flex justify-center items-center">
             <div className="px-8 md:px-16">
               <h1 className="text-lg md:text-3xl mb-6">{city.name}</h1>
               <p className="mb-6">
@@ -46,9 +46,9 @@ export default class CityPage extends React.Component {
               </p>
               <a
                 href="#"
-                className="block md:inline-block text-center no-underline text-orange-900 px-5 py-3 border-2 border-orange-900 hover:bg-orange-900 hover:text-orange-100"
+                className="block md:inline-block text-center no-underline px-5 py-3 border-2 border-black hover:bg-black hover:text-white"
               >
-                Add to cart
+                Read More
               </a>
             </div>
           </div>
@@ -76,11 +76,6 @@ export default class CityPage extends React.Component {
           </p>
         </div>
 
-        <div className="px-6 py-12 md:px-12">
-          <div className="text-sm w-full p-12 text-center bg-blue-100 text-blue-900">
-            Copyright &copy; 2019 Exultant Collective
-          </div>
-        </div>
         <Footer />
       </div>
     );
