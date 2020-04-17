@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { fetchCities, fetchCityBySlug, login } from "../api";
+import { fetchCities, fetchCityBySlug, login, loginFromToken } from "../api";
 
 function* fetchCitiesSagas() {
   try {
@@ -30,12 +30,23 @@ function* userLogin(action) {
     const request = yield call(login, action.payload);
     yield put({ type: "LOGIN_USER_SUCCESS", payload: request.data });
     localStorage.setItem("token", request.data.token);
+    window.location.href = "/";
   } catch (e) {
     yield put({ type: "LOGIN_USER_FAILURE", payload: e.message });
   }
 }
 
+function* userLoginFromToken(action) {
+  try {
+    const request = yield call(loginFromToken, action.payload);
+    yield put({ type: "LOGIN_USER_FROM_TOKEN_SUCCESS", payload: request.data });
+  } catch (e) {
+    yield put({ type: "LOGIN_USER_FROM_TOKEN_FAILURE", payload: e.message });
+  }
+}
+
 function* sagas() {
+  yield takeLatest("LOGIN_USER_FROM_TOKEN_REQUEST", userLoginFromToken);
   yield takeLatest("LOGIN_USER_REQUEST", userLogin);
   yield takeLatest("GET_CITIES_REQUEST", fetchCitiesSagas);
   yield takeLatest("GET_CITY_SLUG_REQUEST", fetchCitiesBySlugSagas);
